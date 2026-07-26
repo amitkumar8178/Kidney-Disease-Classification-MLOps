@@ -1,0 +1,38 @@
+# Virtual environments
+.kidney/
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# DVC cache
+.dvc/cache/
+
+# Python cache
+.pytest_cache/
+.mypy_cache/
+
+# Environment variables
+.env
