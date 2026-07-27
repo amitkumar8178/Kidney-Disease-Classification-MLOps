@@ -1,4 +1,4 @@
-# Kidney-Disease-Classification-MLflow-DVC
+# Kidney-Disease-Classification-MLOps
 
 
 ## Workflows
