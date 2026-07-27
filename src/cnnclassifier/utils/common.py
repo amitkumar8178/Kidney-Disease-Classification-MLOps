@@ -1,7 +1,7 @@
 import os
 from box.exceptions import BoxValueError
-from cnnclassifier import logger
 import yaml
+from cnnclassifier import logger
 import json
 import joblib
 from ensure import ensure_annotations
@@ -9,6 +9,7 @@ from box import ConfigBox
 from pathlib import Path
 from typing import Any
 import base64
+
 
 
 @ensure_annotations
@@ -34,7 +35,7 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
         raise ValueError("yaml file is empty")
     except Exception as e:
         raise e
-
+    
 
 
 @ensure_annotations
@@ -65,6 +66,8 @@ def save_json(path: Path, data: dict):
     logger.info(f"json file saved at: {path}")
 
 
+
+
 @ensure_annotations
 def load_json(path: Path) -> ConfigBox:
     """load json files data
@@ -82,7 +85,6 @@ def load_json(path: Path) -> ConfigBox:
     return ConfigBox(content)
 
 
-
 @ensure_annotations
 def save_bin(data: Any, path: Path):
     """save binary file
@@ -93,7 +95,6 @@ def save_bin(data: Any, path: Path):
     """
     joblib.dump(value=data, filename=path)
     logger.info(f"binary file saved at: {path}")
-
 
 
 @ensure_annotations
@@ -110,8 +111,6 @@ def load_bin(path: Path) -> Any:
     logger.info(f"binary file loaded from: {path}")
     return data
 
-
-
 @ensure_annotations
 def get_size(path: Path) -> str:
     """get size in KB
@@ -124,7 +123,6 @@ def get_size(path: Path) -> str:
     """
     size_in_kb = round(os.path.getsize(path)/1024)
     return f"~ {size_in_kb} KB"
-
 
 
 def decodeImage(imgstring, fileName):
