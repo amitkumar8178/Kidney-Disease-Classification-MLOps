@@ -44,3 +44,13 @@ class DataIngestion:
         os.makedirs(unzip_path, exist_ok=True)
         with zipfile.ZipFile(self.config.local_data_file, 'r') as zip_ref:
             zip_ref.extractall(unzip_path)
+            
+        import shutil
+        extracted_dataset_dir = os.path.join(unzip_path, "kidney_dataset", "kidney-ct-scan-image")
+        target_dir = os.path.join(unzip_path, "kidney-ct-scan-image")
+        
+        if os.path.exists(extracted_dataset_dir):
+            if os.path.exists(target_dir):
+                shutil.rmtree(target_dir)
+            shutil.move(extracted_dataset_dir, target_dir)
+            shutil.rmtree(os.path.join(unzip_path, "kidney_dataset"), ignore_errors=True)
